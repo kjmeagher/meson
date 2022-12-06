@@ -469,7 +469,8 @@ class PythonExternalProgram(ExternalProgram):
             return False
 
     def _get_path(self, state: T.Optional['ModuleState'], key: str) -> None:
-        rel_path = self.info['install_paths'][key][1:]
+        rel_path = self.info['install_paths'][key]
+        print(f"PYTHON INSTALL_PATH {rel_path}")
         if not state:
             # This happens only from run_project_tests.py
             return rel_path
